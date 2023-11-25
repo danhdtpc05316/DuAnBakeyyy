@@ -17,6 +17,9 @@ public class LoaiSanPham {
         this.TenLoaiSP = TenLoaiSP;
     }
 
+    public LoaiSanPham() {
+    }
+    
     public String getMaLoaiSP() {
         return MaLoaiSP;
     }

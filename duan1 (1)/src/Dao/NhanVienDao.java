@@ -4,10 +4,12 @@
  */
 package Dao;
 
+import entity.NhanVien;
+
 /**
  *
  * @author MSI8
  */
-public class NhanVienDao {
+public class NhanVienDao extends duan1Dao <NhanVien, String> {
     
 }

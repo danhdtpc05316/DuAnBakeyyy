@@ -12,14 +12,14 @@ public class NhanVien {
     private int id_NV;
     private String HoTenNV;
     private String MatKhau;
-    private double VaiTro;
+    private boolean VaiTro;
     private int GioiTinh;
     private int SDT;
     private String Email;
     private String DiaChi;
     private String Hinh;
     
-    public NhanVien(int id_NV, String HoTenNV, String MatKhau, double VaiTro, int GioiTinh, int SDT,String Email, String DiaChi, String Hinh){
+    public NhanVien(int id_NV, String HoTenNV, String MatKhau, boolean VaiTro, int GioiTinh, int SDT,String Email, String DiaChi, String Hinh){
         this.id_NV = id_NV;
         this.HoTenNV = HoTenNV;
         this.MatKhau = MatKhau;
@@ -54,11 +54,11 @@ public class NhanVien {
         this.MatKhau = MatKhau;
     }
 
-    public double getVaiTro() {
+    public boolean isVaiTro() {
         return VaiTro;
     }
 
-    public void setVaiTro(double VaiTro) {
+    public void setVaiTro(boolean VaiTro) {
         this.VaiTro = VaiTro;
     }
 
@@ -101,5 +101,10 @@ public class NhanVien {
     public void setHinh(String Hinh) {
         this.Hinh = Hinh;
     }
+    @Override
+    public String toString(){
+        return this.HoTenNV;
+    }
+    
     
 }

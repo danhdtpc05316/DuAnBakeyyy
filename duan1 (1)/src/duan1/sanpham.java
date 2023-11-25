@@ -52,6 +52,9 @@ public class sanpham extends javax.swing.JInternalFrame {
         txtgia_SP3 = new javax.swing.JTextField();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
+        btnupdate2 = new javax.swing.JButton();
+        btnthemSP2 = new javax.swing.JButton();
+        btnxoaSP2 = new javax.swing.JButton();
 
         jPanel2.setBackground(new java.awt.Color(214, 226, 238));
 
@@ -187,29 +190,59 @@ public class sanpham extends javax.swing.JInternalFrame {
         ));
         jScrollPane2.setViewportView(jTable2);
 
+        btnupdate2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnupdate2.setText("Cập Nhật Sản Phẩm");
+        btnupdate2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnupdate2ActionPerformed(evt);
+            }
+        });
+
+        btnthemSP2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnthemSP2.setText("Thêm Sản Phẩm");
+        btnthemSP2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnthemSP2ActionPerformed(evt);
+            }
+        });
+
+        btnxoaSP2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnxoaSP2.setText("Xóa Sản Phẩm");
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(101, 101, 101)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 776, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(107, Short.MAX_VALUE))
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(193, 193, 193)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel6)
-                    .addComponent(jLabel8, javax.swing.GroupLayout.Alignment.TRAILING))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(txtten_SP2, javax.swing.GroupLayout.DEFAULT_SIZE, 426, Short.MAX_VALUE)
-                    .addComponent(txtgia_SP3))
-                .addGap(229, 229, 229))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(101, 101, 101)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 776, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(276, 276, 276)
+                        .addComponent(btnthemSP2)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnupdate2)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnxoaSP2, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(147, 147, 147)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel3Layout.createSequentialGroup()
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel6)
+                                    .addComponent(jLabel8, javax.swing.GroupLayout.Alignment.TRAILING))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(txtten_SP2, javax.swing.GroupLayout.PREFERRED_SIZE, 426, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel3Layout.createSequentialGroup()
+                                .addGap(126, 126, 126)
+                                .addComponent(txtgia_SP3, javax.swing.GroupLayout.PREFERRED_SIZE, 426, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(107, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(47, 47, 47)
+                .addGap(53, 53, 53)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtten_SP2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel6))
@@ -217,8 +250,13 @@ public class sanpham extends javax.swing.JInternalFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtgia_SP3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel8))
-                .addGap(36, 36, 36)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(37, 37, 37)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnthemSP2, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnxoaSP2, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnupdate2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(46, 46, 46)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 342, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(143, Short.MAX_VALUE))
         );
 
@@ -254,11 +292,22 @@ public class sanpham extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtten_SP2ActionPerformed
 
+    private void btnupdate2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnupdate2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnupdate2ActionPerformed
+
+    private void btnthemSP2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnthemSP2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnthemSP2ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnthemSP1;
+    private javax.swing.JButton btnthemSP2;
     private javax.swing.JButton btnupdate1;
+    private javax.swing.JButton btnupdate2;
     private javax.swing.JButton btnxoaSP1;
+    private javax.swing.JButton btnxoaSP2;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;

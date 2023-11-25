@@ -21,6 +21,10 @@ public class SanPham {
         this.Gia = Gia;
     }
 
+    public SanPham() {
+    }
+    
+
     public int getMaSP() {
         return MaSP;
     }

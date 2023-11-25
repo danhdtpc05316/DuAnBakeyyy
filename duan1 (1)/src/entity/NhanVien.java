@@ -30,6 +30,10 @@ public class NhanVien {
         this.Hinh = Hinh;
     }
 
+    public NhanVien() {
+    }
+    
+
     public int getId_NV() {
         return id_NV;
     }

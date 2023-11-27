@@ -60,8 +60,8 @@ public class NhanVienDao extends duan1Dao<NhanVien, String> {
             ResultSet rs = JDBCHelper.query(sql, args);
             while (rs.next()) {
                 NhanVien entity = new NhanVien();
-                entity.setId_NV(rs.getInt("MaNV"));
-                entity.setHoTenNV(rs.getString("HoTen"));
+                entity.setId_NV(rs.getInt("Id_NV"));
+                entity.setHoTenNV(rs.getString("HoTenNV"));
                 entity.setMatKhau(rs.getString("MatKhau"));
                 entity.setVaiTro(rs.getBoolean("VaiTro"));
                 entity.setGioiTinh(rs.getInt("GioiTinh"));

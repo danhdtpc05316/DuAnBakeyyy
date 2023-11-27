@@ -72,4 +72,8 @@ public class SanPhamDao extends duan1Dao<SanPham, String>{
             throw new RuntimeException(e);
         }
     }
+    public SanPham selectByLoaiSanPham(String mlsp){
+        String sql="SELECT * FROM LoaiSanPham WHERE MaLoaiSP = ?";
+        return (SanPham) this.selectBySql(sql, mlsp);
+    }
 }

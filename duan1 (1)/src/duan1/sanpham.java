@@ -4,14 +4,24 @@
  */
 package duan1;
 
+import Dao.LoaiSanPhamDao;
+import Dao.SanPhamDao;
+import entity.LoaiSanPham;
+import entity.SanPham;
+import java.util.List;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.plaf.basic.BasicInternalFrameUI;
+import javax.swing.table.DefaultTableModel;
+import ultils.MsgBox;
 
 /**
  *
  * @author MSI8
  */
 public class sanpham extends javax.swing.JInternalFrame {
-
+    SanPhamDao dao = new SanPhamDao();
+    LoaiSanPhamDao lspdao = new LoaiSanPhamDao();
+    int row = -1;
     /**
      * Creates new form sanpham
      */
@@ -21,6 +31,7 @@ public class sanpham extends javax.swing.JInternalFrame {
         this.setBorder(javax.swing.BorderFactory.createEmptyBorder(0,0,0,0));
         BasicInternalFrameUI ui = (BasicInternalFrameUI)this.getUI();
         ui.setNorthPane(null);
+        init();
     }
 
     /**
@@ -42,16 +53,16 @@ public class sanpham extends javax.swing.JInternalFrame {
         btnthemSP1 = new javax.swing.JButton();
         btnxoaSP1 = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        cboLoaiSP = new javax.swing.JComboBox<>();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tblSanPham = new javax.swing.JTable();
         jPanel3 = new javax.swing.JPanel();
         txtten_SP2 = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         txtgia_SP3 = new javax.swing.JTextField();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
+        tblLoaiSP = new javax.swing.JTable();
         btnupdate2 = new javax.swing.JButton();
         btnthemSP2 = new javax.swing.JButton();
         btnxoaSP2 = new javax.swing.JButton();
@@ -92,9 +103,9 @@ public class sanpham extends javax.swing.JInternalFrame {
         jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel7.setText("Giá sản phẩm:");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cboLoaiSP.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tblSanPham.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -105,7 +116,7 @@ public class sanpham extends javax.swing.JInternalFrame {
                 "Mã sản phẩm", "Tên sản phẩm", "Giá ", "Loại sản phẩm"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tblSanPham);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -131,7 +142,7 @@ public class sanpham extends javax.swing.JInternalFrame {
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(txtgia_SP2, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(txtten_SP1, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jComboBox1, 0, 411, Short.MAX_VALUE))))
+                            .addComponent(cboLoaiSP, 0, 411, Short.MAX_VALUE))))
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(188, 188, 188)
@@ -151,7 +162,7 @@ public class sanpham extends javax.swing.JInternalFrame {
                     .addComponent(jLabel7))
                 .addGap(27, 27, 27)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cboLoaiSP, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4))
                 .addGap(25, 25, 25)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -179,7 +190,7 @@ public class sanpham extends javax.swing.JInternalFrame {
         jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel8.setText("Giá sản phẩm:");
 
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+        tblLoaiSP.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null},
                 {null, null}
@@ -188,7 +199,7 @@ public class sanpham extends javax.swing.JInternalFrame {
                 "Mã loại sản phẩm", "Tên loại sản phẩm"
             }
         ));
-        jScrollPane2.setViewportView(jTable2);
+        jScrollPane2.setViewportView(tblLoaiSP);
 
         btnupdate2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnupdate2.setText("Cập Nhật Sản Phẩm");
@@ -308,7 +319,7 @@ public class sanpham extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnupdate2;
     private javax.swing.JButton btnxoaSP1;
     private javax.swing.JButton btnxoaSP2;
-    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JComboBox<String> cboLoaiSP;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -319,11 +330,47 @@ public class sanpham extends javax.swing.JInternalFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTable jTable2;
+    private javax.swing.JTable tblLoaiSP;
+    private javax.swing.JTable tblSanPham;
     private javax.swing.JTextField txtgia_SP2;
     private javax.swing.JTextField txtgia_SP3;
     private javax.swing.JTextField txtten_SP1;
     private javax.swing.JTextField txtten_SP2;
     // End of variables declaration//GEN-END:variables
+    private void init() {
+        fillTableSanPham();
+        fillComboBoxLoaiSP();
+    }
+    
+    public void fillComboBoxLoaiSP() {
+        DefaultComboBoxModel model = (DefaultComboBoxModel) cboLoaiSP.getModel();
+        model.removeAllElements();
+        List<LoaiSanPham> list = lspdao.selectAll();
+        for (LoaiSanPham lsp : list) {
+            model.addElement(lsp);
+        }
+    }
+    public void fillTableSanPham() {
+        DefaultTableModel model = (DefaultTableModel) tblSanPham.getModel();
+        model.setRowCount(0);
+        try {
+
+            Object lsp =  cboLoaiSP.getSelectedItem();
+
+            List<SanPham> list = dao.selectAll();
+
+            for (SanPham sanpham : list) {
+                Object[] row = {
+                    sanpham.getMaSP(),
+                    sanpham.getTenSP(),
+                    sanpham.getGia(),
+                    sanpham.getMaLoaiSP()};
+                model.addRow(row);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            MsgBox.alert(this, "Lỗi truy vấn dữ liệu!");
+        }
+
+    } 
 }
